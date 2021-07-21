@@ -1,4 +1,3 @@
-
 export function initMap() {
     //定义地图中心点坐标
     var center = new TMap.LatLng(39.984120, 116.307484)
@@ -19,3 +18,5 @@ function setPosition(position) {
     map.setCenter(new TMap.LatLng(position.lat,position.lng));//坐标为天安门
     // centerInfo.innerHTML = "当前地图中心为: 39.908802,116.397502";
 }
+@ts-ignore
+@ts-ignore

@@ -4,8 +4,7 @@
 
 <script>
     import {defineComponent,onMounted} from 'vue'
-    import {getLocation} from "../../getLocation/baidu-getLocation";
-
+    import {getLocation} from "getLocation/baidu-getLocation";
     export default defineComponent({
         name:'baidu-map',
         setup(){

@@ -4,7 +4,7 @@
 
 <script>
     import {defineComponent,onMounted} from 'vue'
-    import {getLocation} from "../../getLocation/gaode-getLocation"
+    import {getLocation} from "getLocation/gaode-getLocation"
 
     export default defineComponent({
         name: "gaode-map",

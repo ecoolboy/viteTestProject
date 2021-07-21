@@ -3,34 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>v-for</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>-->
+
 </head>
 <body>
-<div id="app">
-    <template v-for="(item, index) in list" >
-        <div>{{item.text}}--{{index}}</div>
-        <span>{{item.text}}</span>
-    </template>
+<div id="todoItem">
+    <!--    <todo :todo-data="groceryList"></todo>-->
 </div>
-
+<div id="test"></div>
+<script src="https://cdn.jsdelivr.net/npm/vue " type="text/javascript"></script>
 <script>
-    var vm = new Vue({
-        el: '#app',
-        data: {
-            list: [
-                {
-                    id: "010120",
-                    text: "How"
-                },
-                {
-                    id: "010121",
-                    text: "are"
-                },
-                {
-                    id: "010122",
-                    text: "you"
-                }
+    // let todoItem=Vue.extend({
+    //     template:'<li>{{text}}</li>',
+    //     props:{
+    //         text:{
+    //             type:String,
+    //             default:''
+    //         }
+    //     }
+    // })
+    let todoItem = Vue.extend({
+        // data() {
+        //     return {
+        //         todoData: [
+        //             {id: 0, text: '蔬菜'},
+        //             {id: 1, text: '奶酪'},
+        //             {id: 2, text: '随便其它什么人吃的东西'}
+        //         ]
+        //     }
+        // },
+        props:{
+            todoData:{
+                type:Array,
+                default:[]
+            }
+        },
+        template: `
+          <ul>
+          <li v-for='(d, i) in todoData' :key="i">
+            {{ d.text }}
+          </li>
+          </ul>
+        `
+    })
+    new todoItem({
+        propsData:{
+            todoData:[
+                { id: 0, text: '蔬菜' },
+                { id: 1, text: '奶酪' },
+                { id: 2, text: '随便其它什么人吃的东西' }
             ]
+        }
+    }).$mount('#todoItem')
+    // let todoWrap = Vue.extend({
+    //     template: `
+    //       <ul>
+    //       <todo-item
+    //           v-for="(item,index) in todoData"
+    //           v-text="item.text"
+    //       ></todo-item>
+    //       </ul>
+    //     `,
+    //     props: {
+    //         todoData: {
+    //             type: Array,
+    //             default: []
+    //         }
+    //     },
+    //     components: {
+    //         todoItem: todoItem
+    //     }
+    // })
+    // Vue.component('todo', todoWrap)
+    // new Vue({
+    //     el: '#app',
+    //     data: {
+    //         groceryList: [
+    //             {id: 0, text: '蔬菜'},
+    //             {id: 1, text: '奶酪'},
+    //             {id: 2, text: '随便其它什么人吃的东西'}
+    //         ]
+    //     }
+    // })
+
+    let comp={
+        props:{
+            active:Boolean,
+            propOne:String
+        },
+        template:`<div>
+    <input type='text' v-model="a">
+    <span @click="handle">{{propOne}}</span>
+    <span v-if="active">134</span>
+  </div>`
+        ,
+        data(){
+            return {
+                a:0
+            }
+        },
+        methods:{
+            handle(){
+                this.$emit('change')
+            }
+        }
+    }
+   const compVue=Vue.extend(comp)
+    new compVue({
+        el:'#test',
+        propsData:{
+            propOne:"xxx"
+        },
+        data(){
+            return{
+                a:30
+            }
         }
     })
 </script>

@@ -19,7 +19,7 @@
 
 <script>
     //导入echart主题
-    import data from '../../assets/echartTheme/infographic.json'
+    import data from 'assets/echartTheme/infographic.json'
     import {defineComponent, onMounted, inject} from 'vue'
     import * as echarts from 'echarts'
 

@@ -1,5 +1,6 @@
-import {createApp,h} from 'vue'
+import {createApp,h,onMounted} from 'vue'
 import App from './App.vue';
+//elementPlus相关
 import ElementPlus from 'element-plus';
 import 'element-plus/lib/theme-chalk/index.css';
 import 'element-plus/packages/theme-chalk/src/base.scss'
@@ -8,20 +9,19 @@ import locale from 'element-plus/lib/locale/lang/zh-cn'
 import router from './router/index'
 import {store} from './store'
 
-
+//echarts相关
 import * as echarts from 'echarts'
 import 'echarts-gl'
 import {secondWalk} from "echarts/types/src/chart/tree/layoutHelper";
 
+import '@/permission'
 
 const app = createApp(App)
     .use(router)
     .use(store)
     .use(ElementPlus, {locale})
-
 // @ts-ignore
 app.echarts = echarts
-
 //定义一个全局指令
 // @ts-ignore
 // app.directive('highlight',{

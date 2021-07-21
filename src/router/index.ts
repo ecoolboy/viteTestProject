@@ -1,25 +1,38 @@
-import {createRouter,createWebHashHistory} from "vue-router";
+import {createRouter,createWebHashHistory,createWebHistory} from "vue-router";
 let router=createRouter({
-    history:createWebHashHistory(),
+    history:createWebHistory(),
     routes:[
         {
             name:'home',
             path:'/',
-            component:()=>import('../views/layout/index.vue'),
+            alias:'/home',
+            component:()=>import('views/layout/index.vue'),
+            meta:{
+                title:'首页',
+            },
             children:[
                 {
                     name:'test',
                     path:'test',
-                    component:()=>import('../views/test/index.vue'),
+                    component:()=>import('views/test/index.vue'),
                     meta:{
                         title:'test界面',
                         icon:'el-icon-tickets'
                     }
                 },
                 {
+                    name:'webRTC',
+                    path:'webRTC',
+                    component:()=>import('views/webRTC/index.vue'),
+                    meta:{
+                        title:'webRTC界面',
+                        icon:'el-icon-camera'
+                    }
+                },
+                {
                     name:'eChart',
                     path:'eChart',
-                    component:()=>import('../views/echarts/eChart.vue'),
+                    component:()=>import('views/echarts/eChart.vue'),
                     meta:{
                         title:'eChart界面',
                         icon:'el-icon-s-data'
@@ -28,7 +41,7 @@ let router=createRouter({
                 {
                     name:'map',
                     path:'map',
-                    component:()=>import('../views/map/map.vue'),
+                    component:()=>import('views/map/map.vue'),
                     meta:{
                         title:'map地图',
                         icon:'el-icon-map-location'
@@ -37,7 +50,7 @@ let router=createRouter({
                         {
                             name:'baidu-map',
                             path:'baidu-map',
-                            component:()=>import('../views/map/baidu-map.vue'),
+                            component:()=>import('views/map/baidu-map.vue'),
                             meta:{
                                 title:'百度地图',
                                 icon:'el-icon-place'
@@ -46,7 +59,7 @@ let router=createRouter({
                         {
                             name:'gaode-map',
                             path:'gaode-map',
-                            component:()=>import('../views/map/gaode-map.vue'),
+                            component:()=>import('views/map/gaode-map.vue'),
                             meta:{
                                 title:'高德地图',
                                 icon:'el-icon-location'
@@ -55,7 +68,7 @@ let router=createRouter({
                         {
                             name:'google-map',
                             path:'google-map',
-                            component:()=>import('../views/map/google-map.vue'),
+                            component:()=>import('views/map/google-map.vue'),
                             meta:{
                                 title:'chrome地图',
                                 icon:'el-icon-location-outline'
@@ -64,7 +77,7 @@ let router=createRouter({
                         {
                             name:'tengxun-map',
                             path:'tengxun-map',
-                            component:()=>import('../views/map/tengxun-map.vue'),
+                            component:()=>import('views/map/tengxun-map.vue'),
                             meta:{
                                 title:'腾讯地图',
                                 icon:'el-icon-location-information'
@@ -73,6 +86,14 @@ let router=createRouter({
                     ]
                 }
             ]
+        },
+        {
+            //将匹配所有未找到的路径
+            path: '/:pathMatch(.*)*',
+            //将匹配所有以/user-开头的的路径
+            // path: '/user-:afterUser(.*)',
+            name: 'NotFound',
+            component: ()=>import('views/notFound/index.vue')
         }
     ]
 })
