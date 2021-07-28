@@ -1,6 +1,6 @@
 import {createRouter,createWebHashHistory,createWebHistory} from "vue-router";
 let router=createRouter({
-    history:createWebHistory(),
+    history:createWebHashHistory(),
     routes:[
         {
             name:'home',
@@ -21,12 +21,21 @@ let router=createRouter({
                     }
                 },
                 {
-                    name:'webRTC',
-                    path:'webRTC',
-                    component:()=>import('views/webRTC/index.vue'),
+                    name:'ant-design',
+                    path:'antDesign',
+                    component:()=>import('views/ant-design/index.vue'),
                     meta:{
-                        title:'webRTC界面',
-                        icon:'el-icon-camera'
+                        title:'ant-design界面',
+                        icon:'el-icon-apple'
+                    }
+                },
+                {
+                    name:'viser',
+                    path:'viser',
+                    component:()=>import('views/viser/index.vue'),
+                    meta:{
+                        title:'viser',
+                        icon:'el-icon-coffee-cup'
                     }
                 },
                 {

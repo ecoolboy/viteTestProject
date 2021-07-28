@@ -74,11 +74,11 @@ export default defineComponent({
 
 <style scoped>
 .el-header {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   background-color: rosybrown;
 }
 

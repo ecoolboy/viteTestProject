@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <a href="https://www.baidu.com">Baidu</a>
     <h1 v-highlight="'pink'">$route.param:{{ $route.params.id }}</h1>
     <h1>$route.query.username:{{$route.query.username}}</h1>
     <button @click="testModule">module</button><br>
@@ -133,6 +134,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.container{
+  overflow-y: scroll;
+}
 ul{
   list-style: none;
 }

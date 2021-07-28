@@ -1,5 +1,5 @@
 <template>
-    <div id="baidu-container" style="width: 1000px;height: 500px"></div>
+    <div id="baidu-container" style="width: 1000px;height: 700px"></div>
 </template>
 
 <script>
@@ -16,5 +16,4 @@
 </script>
 
 <style scoped>
-
 </style>

@@ -6,6 +6,10 @@ import 'element-plus/lib/theme-chalk/index.css';
 import 'element-plus/packages/theme-chalk/src/base.scss'
 import locale from 'element-plus/lib/locale/lang/zh-cn'
 
+//引入ant-design
+import Antd from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+
 import router from './router/index'
 import {store} from './store'
 
@@ -16,10 +20,17 @@ import {secondWalk} from "echarts/types/src/chart/tree/layoutHelper";
 
 import '@/permission'
 
+//引入viser
+// import Viser from 'viser-vue'
+
+// @ts-ignore
+// @ts-ignore
 const app = createApp(App)
     .use(router)
     .use(store)
     .use(ElementPlus, {locale})
+    .use(Antd)
+    // .use(Viser)
 // @ts-ignore
 app.echarts = echarts
 //定义一个全局指令
